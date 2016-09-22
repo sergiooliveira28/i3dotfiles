@@ -218,7 +218,7 @@ bindsym $mod+r mode "resize"
 
 
 bar {
-       position top
+       position bottom
        workspace_buttons yes
        mode dock 
        

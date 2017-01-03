@@ -117,13 +117,13 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-set $workspace1 "1"
-set $workspace2 "2"
-set $workspace3 "3"
-set $workspace4 "4"
+set $workspace1 "1 | 🌐 "
+set $workspace2 "2 | >_"
+set $workspace3 "3 | 📂 "
+set $workspace4 "4 | 🎜 "
 set $workspace5 "5" 
 set $workspace6 "6"
-set $workspace7 "7"
+set $workspace7 "7 | @"
 set $workspace8 "8"
 set $workspace9 "9"
 set $workspace10 "10"
@@ -264,7 +264,8 @@ exec_always compton --config ~/.compton.conf
 exec_always /usr/lib/x86_64-linux-gnu/indicator-application/indicator-application-service
 exec --no-startup-id xinput set-prop "ETPS/2 Elantech Touchpad" "Synaptics Scrolling Distance" -78 -78
 #exec --no-startup-id gnome-terminal -e "vis"
-exec lxterm -e "w3m www.4chan.org/g/"
+exec redshift -O 4000
+exec lxterm -e "htop"
 exec --no-startup-id xfce4-panel --disable-wm-check  
 exec --no-startup-id thunderbird
 

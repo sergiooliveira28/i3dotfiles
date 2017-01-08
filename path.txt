@@ -1,2 +1,3 @@
-git push git@github.com:sergiooliveira28/i3dotfiles.git master
+# This is just stupid, i know :)
 
+git push git@github.com:sergiooliveira28/i3dotfiles.git master

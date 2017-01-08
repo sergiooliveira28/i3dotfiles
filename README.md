@@ -9,7 +9,7 @@ Hope you find it useful.
 - [Dependencies](#dependencies)
     - [Ubuntu](#ubuntu)
     - [Arch Linux](#arch-linux)
-- [UPDATE 2017-01-08](#update2017-01-08)    
+- [UPDATE-2017-01-08](#update-2017-01-08)    
 
 ### Dependencies
 
@@ -20,11 +20,11 @@ Don't forget to run all your commands with sudo.
 
 First update ubuntu
 
-apt-get update && apt-get upgrade
+`apt-get update && apt-get upgrade`
 
 Then, install some dependencies
 
-apt-get install i3-wm rofi compton xfce4-panel feh xinput pactl xbacklight
+`apt-get install i3-wm rofi compton xfce4-panel feh xinput pactl xbacklight`
 
 Important: Ubuntu's default desktop environment is Unity, and some stuff here are from other DE (XFCE). There is no conflict between what you're installing.
 
@@ -37,14 +37,14 @@ Don't forget to run all your commands with sudo.
 
 First update Arch
 
-pacman -Syu
+`pacman -Syu`
 
 Then use pacman to install dependencies.
 
-pacman -S i3-wm rofi compton xfce4-panel feh xinput pactl xbacklight
+`pacman -S i3-wm rofi compton xfce4-panel feh xinput pactl xbacklight`
 
 
-### UPDATE 2017-01-08
+### UPDATE-2017-01-08
 
 Default pre-requesites are commented for better compatibility.
 If you want the XFCE taskbar, you have to uncomment in "config" file.

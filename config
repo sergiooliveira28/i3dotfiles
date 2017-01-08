@@ -6,9 +6,7 @@ set $alt Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-#font pango:Roboto Condensed 10
-#font pango:System San Francisco Display 11
-font pango:Terminus 9
+font pango:Sans 11 
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -22,13 +20,12 @@ font pango:Terminus 9
 # font, it doesn’t scale on retina/hidpi displays.
 
 
-#hide_edge_borders both
+# SERGIO
 #new_window 1pixel 
 new_window none
 workspace_layout tabbed
 
 hide_edge_borders horizontal
-#gap_size 2 
 
 set $bg-color 	         #2f343f
 set $inactive-bg-color   #2f343a
@@ -47,22 +44,67 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal floating toggle
+bindsym $mod+Return exec i3-sensible-terminal floating enable
 
 # kill focused window
 bindsym $mod+Shift+q kill
+# O meu atalho # SERGIO
 bindsym $alt+F4 kill
 
 # start dmenu (a program launcher)
 #bindsym Super_L exec dmenu_run
-bindsym $alt+F2 exec rofi -show run -lines 5 -eh 2 -width 100 -padding 300 -opacity "90" -bw 0 -bc "#5697B2" -bg "#2f343f" -fg "#0A0A0A" -hlbg "#2f343f" -hlfg "#f3f4f5" -font "Terminus Bold Semi-Condensed 16"
-bindsym $mod+Tab exec rofi -show window -lines 5 -eh 2 -width 100 -padding 300 -opacity "90" -bw 0 -bc "#5697B2" -bg "#4586A1" -fg "#0A0A0A" -hlbg "#2f343f" -hlfg "#f3f4f5" -font "Terminus Bold Semi-Condensed 16"
+
+# ROFI CUSTOM
+bindsym $alt+F2 exec rofi -show run -width 2560 -padding 770 -font "Sans 18" -location 0 -lines 17 -bw 0 -o 85 -separator-style none
 
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+
+## FLOATS!! ##
+
+for_window [class="Gnome-disks"] floating enable
+for_window [class="Gedit"] floating enable
+for_window [class="^Skype$"] floating enable
+for_window [class="^Gnome-font-viewer$"] floating enable
+#for_window [class="^Thunar$"] floating enable
+for_window [class="^Gpick$"] floating enable
+#for_window [class="^Vlc$"] floating enable
+#for_window [class="^Spotify$"] floating enable workspace 10
+#for_window [instance="gimp"] floating enable
+for_window [window_role="^gimp-toolbox-color-dialog$"] floating enable
+for_window [instance="variety"] floating enable
+for_window [class="Gnome-system-monitor"] floating enable
+for_window [class="Brasero"] floating enable
+for_window [class="Xfburn"] floating enable
+for_window [class="Xfce4-appfinder"] floating enable
+for_window [class="Wine"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="CopyAgent"] floating enable
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="^Preferences$"] floating enable
+for_window [window_role="setup"] floating enable
+for_window [title="^Terminator Preferences$"] floating enable
+for_window [class="Font-manager"] floating enable
+for_window [class="System-config-printer.py"] floating enable
+for_window [class="Nautilus"] floating enable
+for_window [class="Nitrogen"] floating enable
+for_window [title="Copying"] floating enable  
+for_window [title="Deleting"] floating enable  
+for_window [title="Moving"] floating enable
+for_window [class="Unetbootin.elf"] floating enable
+for_window [class="Galculator"] floating enable
+for_window [class="Usb-creator-gtk"] floating enable
+for_window [instance="script-fu"] border normal
+for_window [class="Xfce4-taskmanager"] floating enable
+for_window [class="Imagewriter"] floating enable
+for_window [class="Hexchat"] floating disable
+
+## FIM DE FLOATS ##
+
 
 # change focus
 #bindsym $mod+j focus left
@@ -75,6 +117,8 @@ bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
+
+# ALT TABS NORMAIS # SERGIO
 bindsym $ALT+Tab focus right
 bindsym $ALT+Shift+Tab focus left
 
@@ -117,13 +161,13 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-set $workspace1 "1 | 🌐 "
-set $workspace2 "2 | >_"
-set $workspace3 "3 | 📂 "
-set $workspace4 "4 | 🎜 "
+set $workspace1 "1"
+set $workspace2 "2"
+set $workspace3 "3"
+set $workspace4 "4"
 set $workspace5 "5" 
 set $workspace6 "6"
-set $workspace7 "7 | @"
+set $workspace7 "7"
 set $workspace8 "8"
 set $workspace9 "9"
 set $workspace10 "10"
@@ -151,12 +195,34 @@ bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
-#assign [class="(?i)chrome"] → $workspace1
+#Meus atalhos # SERGIO
+
+bindsym $mod+z exec thunar --no-desktop
+bindsym Print exec xfce4-screenshoter
+bindsym shift+Print exec xfce4-screenshoter -r
+
+#bindsym control+$ALT+c exec chromium;focus
+#bindsym $mod+F1 exec firefox;workspace 1;focus
+#bindsym control+$ALT+w exec subl3;focus
+#bindsym control+$ALT+g exec gimp;focus
+#bindsym $mod+F4 exec gimp;focus
+#bindsym control+$ALT+t exec gnome-terminal;focus
+#bindsym $mod+F9 exec thunderbird;focus
+#bindsym control+$ALT+s exec spotify;focus
+#bindsym $mod+F10 exec spotify;focus
+#bindsym control+$ALT+c exec catfish;focus
+#bindsym control+$ALT+t exec terminator; focus
+#bindsym control+$ALT+Delete exec xfce4-taskmanager;focus
+#bindsym control+Shift+Escape exec xfce4-taskmanager;focus
+#bindsym control+$ALT+q exec xfce4-taskmanager;focus
+
+
+#assign [class="(?i)chromium"] → $workspace1
 #assign [class="(?i)firefox"] → $workspace1
-assign [class="(?i)thunderbird"] → $workspace7
-assign [class="(?i)gnome-terminal"] → $workspace2
-assign [class="(?i)lxterm"] → $workspace2
-assign [class="(?i)xterm"] → $workspace2
+#assign [class="(?i)thunderbird"] → $workspace7
+#assign [class="(?i)gnome-terminal"] → $workspace2
+#assign [class="(?i)uxterm"] → $workspace2
+#assign [class="(?i)xterm"] → $workspace2
 #assign [class="(?i)nautilus"] → $workspace3
 #assign [class="(?i)evince"] → $workspace5
 #assign [class="(?i)audacious"] → $workspace4
@@ -172,6 +238,10 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+
+## SAIR ## SERGIO
+#
 #bindsym $mod+Shift+e exec /home/sergio/.i3/scripts/exit_menu
 
 # resize window (you can also use the mouse for that)
@@ -206,11 +276,11 @@ bindsym $mod+r mode "resize"
 #        status_command i3status
 #}
 
-
+#SERGIO
 bar {
-       position top 
+       position bottom 
        workspace_buttons yes
-       #mode dock 
+       mode dock 
        
        colors {
           background #2F343F
@@ -220,7 +290,8 @@ bar {
           active_workspace #7FB256 #0F0F0F #E5E5E5
           inactive_workspace #5697B2 #5697B2 #E5E5E5
           urgent_workspace #E1696E #E16963 #E5E5E5
-              }
+       }
+              
       status_command i3status -c /home/sergio/.i3/i3status.conf	
 
 }
@@ -230,7 +301,8 @@ bar {
 
 #lock
 bindsym $mod+Shift+x exec i3lock --show-failed-attempts --color 2F343F
-bindsym $mod+l exec sh /home/sergio/.i3/scripts/lock.sh
+bindsym $mod+l exec i3lock --show-failed-attempts --color 2F343F
+#bindsym $mod+l exec sh /home/sergio/.i3/scripts/lock.sh
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% 
@@ -245,33 +317,24 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
 # Touchpad controls
-bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
+#bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
 
 # suspend
 bindsym XF86Suspend exec systemctl suspend
 
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+#bindsym XF86AudioPlay exec playerctl play
+#bindsym XF86AudioPause exec playerctl pause
+#bindsym XF86AudioNext exec playerctl next
+#bindsym XF86AudioPrev exec playerctl previous
 
 #Wallpaper
-exec_always feh --bg-scale /home/sergio/Imagens/Wallpapers/zF1V6EE.jpg
+exec_always feh --bg-scale /home/sergio/Imagens/wall.png
 
-#Exec
-exec_always compton --config ~/.compton.conf
-exec_always /usr/lib/x86_64-linux-gnu/indicator-application/indicator-application-service
+#Exec # SERGIO
+exec_always compton --config ~/.i3/.compton.conf
 exec --no-startup-id xinput set-prop "ETPS/2 Elantech Touchpad" "Synaptics Scrolling Distance" -78 -78
 #exec --no-startup-id gnome-terminal -e "vis"
-exec redshift -O 4000
-exec lxterm -e "htop"
-exec --no-startup-id xfce4-panel --disable-wm-check  
-exec --no-startup-id thunderbird
-
-
-
-#shortcuts
-bindsym $mod+z exec nautilus --no-desktop
-bindsym Print exec gnome-screenshot
-bindsym shift+Print exec gnome-screenshot -a
+#exec redshift -O 4000
+#exec uxterm -e "htop"
+#exec --no-startup-id xfce4-panel --disable-wm-check  

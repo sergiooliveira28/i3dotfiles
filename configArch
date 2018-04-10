@@ -197,9 +197,9 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 
 #Meus atalhos # SERGIO
 
-bindsym $mod+z exec thunar --no-desktop
-bindsym Print exec xfce4-screenshoter
-bindsym shift+Print exec xfce4-screenshoter -r
+bindsym $mod+z exec nautilus --no-desktop 
+bindsym Print exec gnome-screenshot
+bindsym shift+Print exec gnome-screenshot -r
 
 #bindsym control+$ALT+c exec chromium;focus
 #bindsym $mod+F1 exec firefox;workspace 1;focus
@@ -329,7 +329,7 @@ bindsym XF86Suspend exec systemctl suspend
 #bindsym XF86AudioPrev exec playerctl previous
 
 #Wallpaper
-exec_always feh --bg-scale /home/sergio/Imagens/wall.png
+exec_always feh --bg-scale /home/sergio/Imagens/smooth-distro.png
 
 #Exec # SERGIO
 exec_always compton --config ~/.i3/.compton.conf

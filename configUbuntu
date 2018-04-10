@@ -1,0 +1,340 @@
+# i3 config file (v4)
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+
+set $mod Mod4
+set $alt Mod1
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font pango:Sans 11 
+
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+#font pango:DejaVu Sans Mono 8
+
+# Before i3 v4.8, we used to recommend this one as the default:
+# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# The font above is very space-efficient, that is, it looks good, sharp and
+# clear in small sizes. However, its unicode glyph coverage is limited, the old
+# X core fonts rendering does not support right-to-left and this being a bitmap
+# font, it doesn’t scale on retina/hidpi displays.
+
+
+# SERGIO
+#new_window 1pixel 
+new_window none
+workspace_layout tabbed
+
+hide_edge_borders horizontal
+
+set $bg-color 	         #2f343f
+set $inactive-bg-color   #2f343a
+set $text-color          #f3f4f5
+set $inactive-text-color #676E7D
+set $urgent-bg-color     #E53935
+
+# window colors
+#                       border              background         text                 indicator
+client.focused          $bg-color           $bg-color          $text-color          #005500
+client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #500000
+client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #500000
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #F00000
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec i3-sensible-terminal floating enable
+
+# kill focused window
+bindsym $mod+Shift+q kill
+# O meu atalho # SERGIO
+bindsym $alt+F4 kill
+
+# start dmenu (a program launcher)
+#bindsym Super_L exec dmenu_run
+
+# ROFI CUSTOM
+bindsym $alt+F2 exec rofi -show run -width 2560 -padding 770 -font "Sans 18" -location 0 -lines 17 -bw 0 -o 85 -separator-style none
+
+
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+
+## FLOATS!! ##
+
+for_window [class="Gnome-disks"] floating enable
+for_window [class="Gedit"] floating enable
+for_window [class="^Skype$"] floating enable
+for_window [class="^Gnome-font-viewer$"] floating enable
+#for_window [class="^Thunar$"] floating enable
+for_window [class="^Gpick$"] floating enable
+#for_window [class="^Vlc$"] floating enable
+#for_window [class="^Spotify$"] floating enable workspace 10
+#for_window [instance="gimp"] floating enable
+for_window [window_role="^gimp-toolbox-color-dialog$"] floating enable
+for_window [instance="variety"] floating enable
+for_window [class="Gnome-system-monitor"] floating enable
+for_window [class="Brasero"] floating enable
+for_window [class="Xfburn"] floating enable
+for_window [class="Xfce4-appfinder"] floating enable
+for_window [class="Wine"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="CopyAgent"] floating enable
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="^Preferences$"] floating enable
+for_window [window_role="setup"] floating enable
+for_window [title="^Terminator Preferences$"] floating enable
+for_window [class="Font-manager"] floating enable
+for_window [class="System-config-printer.py"] floating enable
+for_window [class="Nautilus"] floating enable
+for_window [class="Nitrogen"] floating enable
+for_window [title="Copying"] floating enable  
+for_window [title="Deleting"] floating enable  
+for_window [title="Moving"] floating enable
+for_window [class="Unetbootin.elf"] floating enable
+for_window [class="Galculator"] floating enable
+for_window [class="Usb-creator-gtk"] floating enable
+for_window [instance="script-fu"] border normal
+for_window [class="Xfce4-taskmanager"] floating enable
+for_window [class="Imagewriter"] floating enable
+for_window [class="Hexchat"] floating disable
+
+## FIM DE FLOATS ##
+
+
+# change focus
+#bindsym $mod+j focus left
+#bindsym $mod+k focus down
+#bindsym $mod+l focus up
+#bindsym $mod+ccedilla focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# ALT TABS NORMAIS # SERGIO
+bindsym $ALT+Tab focus right
+bindsym $ALT+Shift+Tab focus left
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+ccedilla move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+#bindsym $mod+f fullscreen toggle
+bindsym $mod+f fullscreen global
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+set $workspace1 "1"
+set $workspace2 "2"
+set $workspace3 "3"
+set $workspace4 "4"
+set $workspace5 "5" 
+set $workspace6 "6"
+set $workspace7 "7"
+set $workspace8 "8"
+set $workspace9 "9"
+set $workspace10 "10"
+# switch to workspace
+bindsym $mod+1 workspace $workspace1
+bindsym $mod+2 workspace $workspace2
+bindsym $mod+3 workspace $workspace3
+bindsym $mod+4 workspace $workspace4
+bindsym $mod+5 workspace $workspace5
+bindsym $mod+6 workspace $workspace6
+bindsym $mod+7 workspace $workspace7
+bindsym $mod+8 workspace $workspace8
+bindsym $mod+9 workspace $workspace9
+bindsym $mod+0 workspace $workspace10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3
+bindsym $mod+Shift+4 move container to workspace $workspace4
+bindsym $mod+Shift+5 move container to workspace $workspace5
+bindsym $mod+Shift+6 move container to workspace $workspace6
+bindsym $mod+Shift+7 move container to workspace $workspace7
+bindsym $mod+Shift+8 move container to workspace $workspace8
+bindsym $mod+Shift+9 move container to workspace $workspace9
+bindsym $mod+Shift+0 move container to workspace $workspace10
+
+#Meus atalhos # SERGIO
+
+bindsym $mod+z exec nautilus --no-desktop 
+bindsym Print exec gnome-screenshot
+bindsym shift+Print exec gnome-screenshot -r
+
+#bindsym control+$ALT+c exec chromium;focus
+#bindsym $mod+F1 exec firefox;workspace 1;focus
+#bindsym control+$ALT+w exec subl3;focus
+#bindsym control+$ALT+g exec gimp;focus
+#bindsym $mod+F4 exec gimp;focus
+#bindsym control+$ALT+t exec gnome-terminal;focus
+#bindsym $mod+F9 exec thunderbird;focus
+#bindsym control+$ALT+s exec spotify;focus
+#bindsym $mod+F10 exec spotify;focus
+#bindsym control+$ALT+c exec catfish;focus
+#bindsym control+$ALT+t exec terminator; focus
+#bindsym control+$ALT+Delete exec xfce4-taskmanager;focus
+#bindsym control+Shift+Escape exec xfce4-taskmanager;focus
+#bindsym control+$ALT+q exec xfce4-taskmanager;focus
+
+
+#assign [class="(?i)chromium"] → $workspace1
+#assign [class="(?i)firefox"] → $workspace1
+#assign [class="(?i)thunderbird"] → $workspace7
+#assign [class="(?i)gnome-terminal"] → $workspace2
+#assign [class="(?i)uxterm"] → $workspace2
+#assign [class="(?i)xterm"] → $workspace2
+#assign [class="(?i)nautilus"] → $workspace3
+#assign [class="(?i)evince"] → $workspace5
+#assign [class="(?i)audacious"] → $workspace4
+#assign [class="(?i)spotify"] → $workspace4
+#assign [class="(?i)subl"] → $workspace6
+#assign [class="(?i)gedit"] → $workspace6
+#assign [class="(?i)gimp"] → $workspace6
+
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+
+## SAIR ## SERGIO
+#
+#bindsym $mod+Shift+e exec /home/sergio/.i3/scripts/exit_menu
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym ccedilla resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+#bar {
+#        status_command i3status
+#}
+
+#SERGIO
+bar {
+       position bottom 
+       workspace_buttons yes
+       mode dock 
+       
+       colors {
+          background #2F343F
+          
+          statusline #E5E5EE 
+          focused_workspace #FFA252 #FFA252 #0A0A0A
+          active_workspace #7FB256 #0F0F0F #E5E5E5
+          inactive_workspace #5697B2 #5697B2 #E5E5E5
+          urgent_workspace #E1696E #E16963 #E5E5E5
+       }
+              
+      status_command i3status -c /home/sergio/.i3/i3status.conf	
+
+}
+
+
+
+
+#lock
+bindsym $mod+Shift+x exec i3lock --show-failed-attempts --color 2F343F
+bindsym $mod+l exec i3lock --show-failed-attempts --color 2F343F
+#bindsym $mod+l exec sh /home/sergio/.i3/scripts/lock.sh
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% 
+#increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% 
+#decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle 
+# mute sound
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+# Touchpad controls
+#bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
+
+# suspend
+bindsym XF86Suspend exec systemctl suspend
+
+# Media player controls
+#bindsym XF86AudioPlay exec playerctl play
+#bindsym XF86AudioPause exec playerctl pause
+#bindsym XF86AudioNext exec playerctl next
+#bindsym XF86AudioPrev exec playerctl previous
+
+#Wallpaper
+exec_always feh --bg-scale /home/sergio/Imagens/smooth-distro.png
+
+#Exec # SERGIO
+exec_always compton --config ~/.i3/.compton.conf
+exec --no-startup-id xinput set-prop "ETPS/2 Elantech Touchpad" "Synaptics Scrolling Distance" -78 -78
+#exec --no-startup-id gnome-terminal -e "vis"
+#exec redshift -O 4000
+#exec uxterm -e "htop"
+#exec --no-startup-id xfce4-panel --disable-wm-check  

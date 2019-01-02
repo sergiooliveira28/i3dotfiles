@@ -24,7 +24,7 @@ First update ubuntu
 
 Then, install some dependencies
 
-`apt-get install i3-wm rofi compton xfce4-panel feh xinput pactl xbacklight`
+`apt-get install i3-wm i3status rofi compton xfce4-panel feh xinput pactl xbacklight`
 
 Important: Ubuntu's default desktop environment is Unity, and some stuff here are from other DE (XFCE). There is no conflict between what you're installing.
 
@@ -41,10 +41,14 @@ First update Arch
 
 Then use pacman to install dependencies.
 
-`pacman -S i3-wm rofi compton xfce4-panel feh xinput pactl xbacklight`
+`pacman -S i3-wm i3status rofi compton xfce4-panel feh xinput pactl xbacklight`
 
 
 ### UPDATE-2017-01-08
 
 Default pre-requesites are commented for better compatibility.
 If you want the XFCE taskbar, you have to uncomment in "config" file.
+
+### UPDATE 2019-01-02
+
+Added i3status to the list

@@ -6,26 +6,17 @@ set $alt Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Sans 11 
+font pango:Sans 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
-# Before i3 v4.8, we used to recommend this one as the default:
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, its unicode glyph coverage is limited, the old
-# X core fonts rendering does not support right-to-left and this being a bitmap
-# font, it doesn’t scale on retina/hidpi displays.
-
-
 # SERGIO
 #new_window 1pixel 
-new_window none
-workspace_layout tabbed
-
-hide_edge_borders horizontal
+#new_window none
+#workspace_layout tabbed
+#hide_edge_borders horizontal
 
 set $bg-color 	         #2f343f
 set $inactive-bg-color   #2f343a
@@ -44,7 +35,7 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal floating enable
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -52,17 +43,10 @@ bindsym $mod+Shift+q kill
 bindsym $alt+F4 kill
 
 # start dmenu (a program launcher)
-#bindsym Super_L exec dmenu_run
+#bindsym $mod+d exec dmenu_run
 
 # ROFI CUSTOM
-bindsym $alt+F2 exec rofi -show run -width 2560 -padding 770 -font "Sans 18" -location 0 -lines 17 -bw 0 -o 85 -separator-style none
-
-
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-
+bindsym $alt+F2 exec rofi -show run -width 500 -padding 5 -font "Sans 18" -location 0 -lines 5 -bw 0 -o 85 -separator-style none
 
 ## FLOATS!! ##
 
@@ -105,7 +89,6 @@ for_window [class="Hexchat"] floating disable
 
 ## FIM DE FLOATS ##
 
-
 # change focus
 #bindsym $mod+j focus left
 #bindsym $mod+k focus down
@@ -147,7 +130,7 @@ bindsym $mod+f fullscreen global
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+x layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -161,12 +144,12 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-set $workspace1 "1"
-set $workspace2 "2"
-set $workspace3 "3"
-set $workspace4 "4"
-set $workspace5 "5" 
-set $workspace6 "6"
+set $workspace1 "1 Main"
+set $workspace2 "2 Term"
+set $workspace3 "3 File"
+set $workspace4 "4 Audio"
+set $workspace5 "5 htop" 
+set $workspace6 "6 etc."
 set $workspace7 "7"
 set $workspace8 "8"
 set $workspace9 "9"
@@ -197,40 +180,9 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 
 #Meus atalhos # SERGIO
 
-bindsym $mod+z exec nautilus --no-desktop 
+bindsym $mod+e exec nautilus --no-desktop 
 bindsym Print exec gnome-screenshot
 bindsym shift+Print exec gnome-screenshot -r
-
-#bindsym control+$ALT+c exec chromium;focus
-#bindsym $mod+F1 exec firefox;workspace 1;focus
-#bindsym control+$ALT+w exec subl3;focus
-#bindsym control+$ALT+g exec gimp;focus
-#bindsym $mod+F4 exec gimp;focus
-#bindsym control+$ALT+t exec gnome-terminal;focus
-#bindsym $mod+F9 exec thunderbird;focus
-#bindsym control+$ALT+s exec spotify;focus
-#bindsym $mod+F10 exec spotify;focus
-#bindsym control+$ALT+c exec catfish;focus
-#bindsym control+$ALT+t exec terminator; focus
-#bindsym control+$ALT+Delete exec xfce4-taskmanager;focus
-#bindsym control+Shift+Escape exec xfce4-taskmanager;focus
-#bindsym control+$ALT+q exec xfce4-taskmanager;focus
-
-
-#assign [class="(?i)chromium"] → $workspace1
-#assign [class="(?i)firefox"] → $workspace1
-#assign [class="(?i)thunderbird"] → $workspace7
-#assign [class="(?i)gnome-terminal"] → $workspace2
-#assign [class="(?i)uxterm"] → $workspace2
-#assign [class="(?i)xterm"] → $workspace2
-#assign [class="(?i)nautilus"] → $workspace3
-#assign [class="(?i)evince"] → $workspace5
-#assign [class="(?i)audacious"] → $workspace4
-#assign [class="(?i)spotify"] → $workspace4
-#assign [class="(?i)subl"] → $workspace6
-#assign [class="(?i)gedit"] → $workspace6
-#assign [class="(?i)gimp"] → $workspace6
-
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -278,7 +230,7 @@ bindsym $mod+r mode "resize"
 
 #SERGIO
 bar {
-       position bottom 
+       position top 
        workspace_buttons yes
        mode dock 
        
@@ -292,49 +244,36 @@ bar {
           urgent_workspace #E1696E #E16963 #E5E5E5
        }
               
-      status_command i3status -c /home/sergio/.i3/i3status.conf	
-
+      status_command i3status -c /home/sergio/.config/i3/i3status.conf
 }
-
-
-
 
 #lock
 bindsym $mod+Shift+x exec i3lock --show-failed-attempts --color 2F343F
-bindsym $mod+l exec i3lock --show-failed-attempts --color 2F343F
+bindsym $mod+l exec i3lock -i ~/.config/i3/i3lock.png -p default --show-failed-attempts 
 #bindsym $mod+l exec sh /home/sergio/.i3/scripts/lock.sh
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% 
 #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% 
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% 
 #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle 
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% 
 # mute sound
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle 
+
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+#bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
+#bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec "light -A 5; notify-send ' + Mais brilho'" 
+bindsym XF86MonBrightnessDown exec "light -U 5; notify-send ' - Menos brilho'"
 
-# Touchpad controls
-#bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
-
-# suspend
-bindsym XF86Suspend exec systemctl suspend
-
-# Media player controls
-#bindsym XF86AudioPlay exec playerctl play
-#bindsym XF86AudioPause exec playerctl pause
-#bindsym XF86AudioNext exec playerctl next
-#bindsym XF86AudioPrev exec playerctl previous
 
 #Wallpaper
-exec_always feh --bg-scale /home/sergio/Imagens/smooth-distro.png
+exec_always feh --bg-scale /home/sergio/Imagens/Wallpapers/wallpaper.jpg
 
 #Exec # SERGIO
-exec_always compton --config ~/.i3/.compton.conf
-exec --no-startup-id xinput set-prop "ETPS/2 Elantech Touchpad" "Synaptics Scrolling Distance" -78 -78
-#exec --no-startup-id gnome-terminal -e "vis"
-#exec redshift -O 4000
-#exec uxterm -e "htop"
-#exec --no-startup-id xfce4-panel --disable-wm-check  
+exec_always compton --config /home/sergio/.config/i3/.compton.conf
+exec --no-startup-id xfce4-panel --disable-wm-check
+exec --no-startup-id xinput set-prop 14 290 1
+exec --no-startup-id xinput set-prop 14 282 1
+

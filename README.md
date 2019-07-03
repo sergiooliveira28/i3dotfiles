@@ -9,8 +9,9 @@ Hope you find it useful.
 - [Dependencies](#dependencies)
     - [Ubuntu](#ubuntu)
     - [Arch Linux](#arch-linux)
-- [UPDATE-2017-01-08](#update-2017-01-08)    
-
+- [UPDATE-2017-01-08](#update-2017-01-08)
+- [UPDATE-2019-01-02](#update-2019-01-02)
+- [UPDATE-2019-06-25](#update-2019-01-02)
 ### Dependencies
 
 
@@ -24,9 +25,22 @@ First update ubuntu
 
 Then, install some dependencies
 
-`apt-get install i3-wm i3status rofi compton xfce4-panel feh xinput pactl xbacklight`
+`apt-get install i3-wm i3status rofi compton feh xinput pactl xfce4-panel`
 
-Important: Ubuntu's default desktop environment is Unity, and some stuff here are from other DE (XFCE). There is no conflict between what you're installing.
+Installing "light" - Ubuntu 18.04
+
+'git clone https://github.com/haikarainen/light.git'
+
+'cd light'
+
+'./autogen.sh'
+
+'./configure'
+
+'make'
+
+'sudo make install'
+
 
 
 ### Arch Linux
@@ -41,7 +55,7 @@ First update Arch
 
 Then use pacman to install dependencies.
 
-`pacman -S i3-wm i3status rofi compton xfce4-panel feh xinput pactl xbacklight`
+`pacman -S i3-wm i3status rofi compton feh xinput pactl light xfce4-panel`
 
 
 ### UPDATE-2017-01-08
@@ -49,6 +63,14 @@ Then use pacman to install dependencies.
 Default pre-requesites are commented for better compatibility.
 If you want the XFCE taskbar, you have to uncomment in "config" file.
 
-### UPDATE 2019-01-02
+### UPDATE-2019-01-02
 
 Added i3status to the list
+
+
+### UPDATE-2019-06-25
+
+xbacklight is not supported anymore on Ubuntu 18.04.
+So 'light' is now the alternative.
+
+

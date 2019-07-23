@@ -180,7 +180,7 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 
 #Meus atalhos # SERGIO
 
-bindsym $mod+e exec nautilus --no-desktop 
+bindsym $mod+e exec thunar
 bindsym Print exec gnome-screenshot
 bindsym shift+Print exec gnome-screenshot -r
 
@@ -230,7 +230,7 @@ bindsym $mod+r mode "resize"
 
 #SERGIO
 bar {
-       position top 
+       position bottom 
        workspace_buttons yes
        mode dock 
        
@@ -269,11 +269,11 @@ bindsym XF86MonBrightnessDown exec "light -U 5; notify-send ' - Menos brilho'"
 
 
 #Wallpaper
-exec_always feh --bg-scale /home/sergio/Imagens/Wallpapers/wallpaper.jpg
+#exec_always feh --bg-scale /home/sergio/Imagens/Wallpapers/wallpaper.jpg
 
 #Exec # SERGIO
-exec_always compton --config /home/sergio/.config/i3/.compton.conf
-exec --no-startup-id xfce4-panel --disable-wm-check
-exec --no-startup-id xinput set-prop 14 290 1
-exec --no-startup-id xinput set-prop 14 282 1
+#exec_always compton --config /home/sergio/.config/i3/.compton.conf
+#exec --no-startup-id xfce4-panel --disable-wm-check
+exec --no-startup-id xinput set-prop 14 281 1
+exec --no-startup-id xinput set-prop 14 289 1
 
